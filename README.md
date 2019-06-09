@@ -17,7 +17,7 @@ If you can't, mail to [zhuxingyu@megvii.com](mailto:zhuxingyu@megvii.com)
 ```sh
 cd nvim-config
 export all_proxy=http://proxy.i.brainpp.cn:3128 no_proxy=.brainpp.cn,.brainpp.ml,.megvii-inc.com,.megvii-op.org,127.0.0.1,localhost; export http_proxy=$all_proxy https_proxy=$all_proxy
-sudo bash Nvim-install.sh
+bash Nvim-install.sh
 ```
 
 2.Open nvim, and
