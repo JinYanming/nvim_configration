@@ -5,6 +5,7 @@ by Xingyu Zhu
 ## A Rapid Installation Mode
 
 Clone this repo:
+```sh
 git clone https://github.com/MiseryForMe/nvim_configration.git
 ```
 
