@@ -141,19 +141,19 @@ func SetTitle()
 "    elseif &filetype == 'mkd'
 "        call setline(1,"<head><meta charset=\"UTF-8\"></head>")
 	else 
-		call setline(1, "/*************************************************************************") 
+		call setline(1, "'''*************************************************************************") 
 		call append(line("."), "	> File Name: ".expand("%")) 
-		call append(line(".")+1, "	> Author: ") 
-		call append(line(".")+2, "	> Mail: ") 
+		call append(line(".")+1, "	> Author: jinyanming") 
+		call append(line(".")+2, "	> Mail: jinyanming@megvii.com") 
 		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
-		call append(line(".")+4, " ************************************************************************/") 
+		call append(line(".")+4, " ************************************************************************'''") 
 		call append(line(".")+5, "")
 	endif
 	if expand("%:e") == 'cpp'
 		call append(line(".")+6, "#include<iostream>")
 		call append(line(".")+7, "using namespace std;")
 		call append(line(".")+8, "")
-	endif
+    endif
 	if &filetype == 'c'
 		call append(line(".")+6, "#include<stdio.h>")
 		call append(line(".")+7, "")
@@ -207,7 +207,7 @@ map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 "打开树状文件目录  
 map <C-F3> \be  
-:autocmd BufRead,BufNewFile *.dot map <F5> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
+:autocmd BufRead,BufNewFile *.dot map <F4> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
 "C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -473,9 +473,17 @@ Plug 'https://github.com/vim-scripts/taglist.vim.git'
 " Auto-Complete
 Plug 'roxma/nvim-completion-manager'
 Plug 'davidhalter/jedi-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'hdima/python-syntax'
 " Initialize plugin system
 call plug#end()
-
+"""""syntax configration""""""""""""""
+let python_highlight_all = 1
+let OPTION_NAME = 1
+"""""""ctrlp setings""""""""""""
+let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'<Paste>
+let g:ctrlp_working_path_mode = 'ra'
 " Nerd Tree Setup
 map <C-h> :NERDTreeToggle<CR>
 
