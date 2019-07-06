@@ -25,7 +25,7 @@ sudo rm -rf ~/.oh-my-zsh
 echo y|sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "${BLUE}make zsh default${RESET}" 
-
+sudo usermod -s /bin/zsh root
 sudo usermod -s /bin/zsh $USER
 
 echo "${BLUE}install vim-plug${RESET}"
