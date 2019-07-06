@@ -39,10 +39,10 @@ cp ./init.vim ~/.config/nvim
 rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
 if [ -f ~/.zshrc ];then
-rm ~/.zshrc
+sudo rm ~/.zshrc
 fi
 if [ -f ~/.tmux.conf ];then
-rm ~/.tmux.conf
+sudo rm ~/.tmux.conf
 fi
 sudo cp ./.zshrc ~/
 sudo cp ./.tmux.conf ~/
