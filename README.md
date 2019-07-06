@@ -1,6 +1,4 @@
-# A Setup Guide FOR NEOVIM / TMUX
-
-by Xingyu Zhu  
+#by jinyanming 
 
 ## A Rapid Installation Mode
 
@@ -12,8 +10,8 @@ git clone https://github.com/MiseryForMe/nvim_configration.git
 
 1.Quick installation
 ```sh
-cd nvim-config
-bash Nvim-install.sh
+cd nvim_configration
+bash nvim+tmux+zsh-auto.sh
 ```
 
 2.Open nvim, and
@@ -22,5 +20,6 @@ bash Nvim-install.sh
 ```
 
 And it would be all done~
+tools including nvim zsh tmux and several needed plugs will be installed automaticly
 
 

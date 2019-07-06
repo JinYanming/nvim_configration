@@ -31,11 +31,6 @@ au FileType html setlocal dict+=~/.vim/dict/css.dict
 
 "
 "syntastic相关
-"execute pathogen#infect()
-"let g:syntastic_python_checkers=['pylint']
-"let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-"golang
-"Processing... % (ctrl+c to stop)
 let g:fencview_autodetect=0
 set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -475,9 +470,19 @@ Plug 'roxma/nvim-completion-manager'
 Plug 'davidhalter/jedi-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'hdima/python-syntax'
+Plug 'vim-syntastic/syntastic'
 " Initialize plugin system
 call plug#end()
 """""syntax configration""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers=['pylint']
 let python_highlight_all = 1
 let OPTION_NAME = 1
 """""""ctrlp setings""""""""""""

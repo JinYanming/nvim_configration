@@ -5,7 +5,7 @@
 export ZSH="/home/jinyanming/.oh-my-zsh"
 export PATH=/data/cuda/cuda-10.0/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/data/cuda/cuda-10.0/cuda/lib64:/data/cuda/cuda-10.0/cudnn/v7.5.0/lib64:$LD_LIBRARY_PATH
-PYTHONPATH=$PYTHONPATH:/home/jinyanming/pokerface
+export PYTHONPATH=$PYTHONPATH:/home/jinyanming/pokerface
 ZSH_THEME="agnoster"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -103,4 +103,4 @@ source /home/jinyanming/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias oss="aws --endpoint-url=http://oss.wh-a.brainpp.cn s3 ls"
+alias oss="aws --endpoint-url=http://oss.wh-a.brainpp.cn s3"
