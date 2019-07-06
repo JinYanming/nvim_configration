@@ -1,3 +1,5 @@
+set-window-option -g xterm-keys on
+set -g prefix C-x
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -12,7 +14,6 @@ run-shell '~/clone/path/urlview.tmux'
 run-shell '~/clone/path/cpu/cpu.tmux'
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
-set -g prefix C-x
 unbind C-b
 bind C-x send-prefix
 bind '"' split-window -c "#{pane_current_path}"

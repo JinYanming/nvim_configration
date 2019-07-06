@@ -138,8 +138,8 @@ func SetTitle()
 	else 
 		call setline(1, "'''*************************************************************************") 
 		call append(line("."), "	> File Name: ".expand("%")) 
-		call append(line(".")+1, "	> Author: jinyanming") 
-		call append(line(".")+2, "	> Mail: jinyanming@megvii.com") 
+		call append(line(".")+1, "	> Author: Your Name (edit this in the init.vim file)") 
+		call append(line(".")+2, "	> Mail: Your Mail@mail.com") 
 		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
 		call append(line(".")+4, " ************************************************************************'''") 
 		call append(line(".")+5, "")
@@ -190,19 +190,10 @@ imap <C-a> <Esc>^
 imap <C-e> <Esc>$
 vmap <C-c> "+y
 set mouse=v
-"set clipboard=unnamed
 "去空行  
 nnoremap <F2> :g/^\s*$/d<CR> 
 "比较文件  
 nnoremap <C-F2> :vert diffsplit 
-"nnoremap <Leader>fu :CtrlPFunky<Cr>
-"nnoremap <C-n> :CtrlPFunky<Cr>
-"列出当前目录文件  
-map <F3> :NERDTreeToggle<CR>
-imap <F3> <ESC> :NERDTreeToggle<CR>
-"打开树状文件目录  
-map <C-F3> \be  
-:autocmd BufRead,BufNewFile *.dot map <F4> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
 "C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -278,10 +269,6 @@ if has("autocmd")
           \   exe "normal g`\"" |
           \ endif
 endif
-"当打开vim且没有文件时自动打开NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
-" 只剩 NERDTree时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " 设置当文件被改动时自动载入
 set autoread
@@ -387,6 +374,7 @@ let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
 let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 " minibufexpl插件的一般设置
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -394,14 +382,6 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1  
 nmap tl :Tlist<cr>
 
-"python补全
-let g:pydiction_location = '~/.vim/after/complete-dict'
-let g:pydiction_menu_height = 20
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
 
 
 set iskeyword+=.
@@ -409,68 +389,52 @@ set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-"set nocompatible               " be iMproved
-"filetype off                   " required!
 
 call plug#begin('~/.vim/plugged')
-
+"Plug 'ervandew/supertab'
 " Make sure you use single quotes
 
 Plug 'majutsushi/tagbar'
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
-" Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'wakatime/vim-wakatime'
-" On-demand loading
+"Plug 'wakatime/vim-wakatime'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Using a non-master branch
+Plug 'ycm-core/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-"Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Airline
 "Plug 'Lokaltog/vim-powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"let g:Powerline_colorscheme='solarized256'
 
-" Color Scheme
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
-" Plugin options
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
+Plug 'junegunn/fzf.vim'
 Plug '~/my-prototype-plugin'
 
-" Easy Align
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'easymotion/vim-easymotion'
 Plug 'https://github.com/vim-scripts/taglist.vim.git'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" let g:deoplete#enable_at_startup = 1
-"let g:python_host_prog  = '/usr/local/bin/python'
-"let g:python3_host_prog = '/usr/local/bin/python3'
-" Auto-Complete
-Plug 'roxma/nvim-completion-manager'
-Plug 'davidhalter/jedi-vim'
+" UI Plugin
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+"Plug 'davidhalter/jedi-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'hdima/python-syntax'
 Plug 'vim-syntastic/syntastic'
+Plug 'rhysd/nyaovim-popup-tooltip'
 " Initialize plugin system
 call plug#end()
 """""syntax configration""""""""""""""
@@ -489,8 +453,20 @@ let OPTION_NAME = 1
 let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'<Paste>
 let g:ctrlp_working_path_mode = 'ra'
+
 " Nerd Tree Setup
 map <C-h> :NERDTreeToggle<CR>
+"当打开vim且没有文件时自动打开NERDTree
+"autocmd vimenter * NERDTree
+" 只剩 NERDTree时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"列出当前目录文件  
+map <F3> :NERDTreeToggle<CR>
+imap <F3> <ESC> :NERDTreeToggle<CR>
+"打开树状文件目录  
+map <C-F3> \be  
+:autocmd BufRead,BufNewFile *.dot map <F4> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
+
 
 " Color Scheme Setup
 syntax enable
@@ -524,7 +500,29 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 nmap <F8> :TagbarToggle<CR>
+"ycm configration
+let g:ycm_python_interpreter_path = '/usr/bin/python'
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
 let g:tagbar_ctags_bin='/usr/bin/ctags'
 
-" UI Plugin
-Plug 'rhysd/nyaovim-popup-tooltip'
+
+"forbid the id complete
+let g:ycm_min_num_of_chars_for_completion = 999
+nnoremap gl :YcmCompleter GoToDeclaration 
+nnoremap gf :YcmCompleter GoToDefinition 
+nnoremap gg :YcmCompleter GoToDefinitionElseDeclaration
+"ycm end
+
+"ncm2 configration 
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+"set completeopt=noinsert,menuone,noselect
+" ncm2 configration end
+
