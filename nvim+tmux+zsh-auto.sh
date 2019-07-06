@@ -32,7 +32,8 @@ echo "${BLUE}install vim-plug${RESET}"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p ~/.config/nvim
-cp ./init.vim ~/.config/nvim
+sudo cp ./init.vim ~/.config/nvim
+sudo chmod 755 ~/.config/nvim/init.vim
 
 rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
@@ -43,16 +44,22 @@ if [ -f ~/.tmux.conf ];then
 sudo rm ~/.tmux.conf
 fi
 sudo cp ./.zshrc ~/
+sudo chmod 755 ~/.zshrc
 sudo cp ./.tmux.conf ~/
+sudo chmod 755 ~/.tmux.conf
 if [ ! -d ~/.vim/tags ];then
 mkdir -p ~/.vim/tags/
 fi
-#echo "${BLUE}install fzf${RESET}"
-#sudo git clone --depth 1 https://github.com/junegunn/fzf.git ~${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
+echo "${BLUE}install fzf${RESET}"
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.zsh/.fzf
+~/.zsh/.fzf/install
+echo "${YELLOW} fzf installation is completed${RESET}"
 echo "${BLUE}install zsh autosuggestions${RESET}"
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "${YELLOW} zsh autosuggestions installation is completed${RESET}"
 echo "${BLUE}install zsh-syntax-highlighting${RESET}"
 sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+echo "${YELLOW} zsh-syntax-highlighting installation is completed${RESET}"
 
 echo "${RED}install over${RESET}"
 source ~/.zshrc
