@@ -26,9 +26,7 @@ echo y|sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/ma
 
 echo "${BLUE}make zsh default${RESET}" 
 
-chsh -s /bin/zsh root
-chsh -s /bin/zsh
-
+sudo usermod -s /bin/zsh $USER
 
 echo "${BLUE}install vim-plug${RESET}"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -49,8 +47,8 @@ sudo cp ./.tmux.conf ~/
 if [ ! -d ~/.vim/tags ];then
 mkdir -p ~/.vim/tags/
 fi
-echo "${BLUE}install fzf${RESET}"
-sudo git clone --depth 1 https://github.com/junegunn/fzf.git ~${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
+#echo "${BLUE}install fzf${RESET}"
+#sudo git clone --depth 1 https://github.com/junegunn/fzf.git ~${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
 echo "${BLUE}install zsh autosuggestions${RESET}"
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 echo "${BLUE}install zsh-syntax-highlighting${RESET}"
