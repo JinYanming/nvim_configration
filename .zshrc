@@ -103,4 +103,4 @@ source /home/jinyanming/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias oss="aws --endpoint-url=http://oss.wh-a.brainpp.cn s3"
+alias oss=""
