@@ -51,7 +51,6 @@ mkdir -p ~/.vim/tags/
 fi
 echo "${BLUE}install fzf${RESET}"
 sudo git clone --depth 1 https://github.com/junegunn/fzf.git ~${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
-~/.zsh/.fzf/install
 echo "${BLUE}install zsh autosuggestions${RESET}"
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 echo "${BLUE}install zsh-syntax-highlighting${RESET}"
