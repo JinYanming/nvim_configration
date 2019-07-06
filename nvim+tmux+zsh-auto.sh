@@ -1,5 +1,12 @@
 #!/bin/bash
-'''clear enviroment'''
+set -e
+RED=$(printf '\033[31m')
+GREEN=$(printf '\033[32m')
+YELLOW=$(printf '\033[33m')
+BLUE=$(printf '\033[34m')
+BOLD=$(printf '\033[1m')
+RESET=$(printf '\033[m')
+echo "${RED}clear enviroment"
 
 if [ -d "~/.zsh" ];then
 sudo rm -rf ~/.zsh
