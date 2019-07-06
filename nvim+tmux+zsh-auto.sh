@@ -19,6 +19,7 @@ sudo apt update
 sudo apt-get install -y neovim
 sudo apt-get install -y zsh
 sudo apt-get install -y tmux
+sudo apt-get install -y ctags
 echo "${BLUE}install oh my zsh${RESET}"
 sudo rm -rf ~/.oh-my-zsh
 echo y|sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -37,8 +38,6 @@ cp ./init.vim ~/.config/nvim
 
 rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
-echo "${YELLOW}The program will automaticlly make the ctags needed/n${RESET}"
-sudo apt-get install ctags
 if [ -f ~/.zshrc ];then
 rm ~/.zshrc
 fi
@@ -50,7 +49,7 @@ sudo cp ./.tmux.conf ~/
 if [ ! -d ~/.vim/tags ];then
 mkdir -p ~/.vim/tags/
 fi
-ehco "${BLUE}install fzf${RESET}"
+echo "${BLUE}install fzf${RESET}"
 sudo git clone --depth 1 https://github.com/junegunn/fzf.git ~${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
 ~/.zsh/.fzf/install
 echo "${BLUE}install zsh autosuggestions${RESET}"
