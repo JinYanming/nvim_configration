@@ -2,10 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/jinyanming/.oh-my-zsh"
-export PATH=/data/cuda/cuda-10.0/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/data/cuda/cuda-10.0/cuda/lib64:/data/cuda/cuda-10.0/cudnn/v7.5.0/lib64:$LD_LIBRARY_PATH
-export PYTHONPATH=$PYTHONPATH:/home/jinyanming/pokerface
 ZSH_THEME="agnoster"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -69,11 +65,6 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-plugins=(zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -99,8 +90,11 @@ source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /home/jinyanming/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias oss=""
+plugins=(
+git
+zsh-autosuggestions 
+zsh-syntax-highlighting
+)
+[ -f ~/.fzf.zsh ] && source ~/.zsh/.fzf.zsh
