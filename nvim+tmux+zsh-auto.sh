@@ -19,7 +19,7 @@ cp ./.tmux.conf ~/.tmux.conf
 if [ ! -d "~/.vim/tags" ];then
 mkdir -p ~/.vim/tags/
 fi
-source ~/zshrc
+source ~/.zshrc
 ctags -R -f ~/.vim/tags/python3.ctags /usr/lib/python3.5/
 ctags -R -f ~/.vim/tags/python3-dp.ctags /usr/local/lib/python3.5/dist-packages
 ctags -R -f ~/.vim/tags/python3-sp.ctags /home/jinyanming/.local/lib/python3.5/site-packages
