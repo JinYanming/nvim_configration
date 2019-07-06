@@ -22,4 +22,4 @@ bash nvim+tmux+zsh-auto.sh
 And it would be all done~
 tools including nvim zsh tmux and several needed plugs will be installed automaticly
 
-[{"src":"xap:resources/8bc1d26d61eb302c807237506d4eff13734d77f9329cb2b3fe9e4fc236b169cd.png","width":380,"height":262,"type":"image"}]
+
