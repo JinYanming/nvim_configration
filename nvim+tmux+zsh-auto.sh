@@ -1,15 +1,13 @@
 #!/bin/bash
-'''
-clear enviroment
-'''
+'''clear enviroment'''
 
-if [ ! -d "~/.zsh" ];then
+if [ -d "~/.zsh" ];then
 sudo rm -rf ~/.zsh
 mkdir ~/.zsh
 fi
 
 sudo apt update
-sudo apt install -y neovim
+sudo apt-get install -y neovim
 sudo apt-get install -y zsh
 sudo apt-get install -y tmux
 sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -19,7 +17,6 @@ make zsh default
 chsh -s /bin/zsh root
 chsh -s /bin/zsh
 
-cd ~/.zsh
 '''install fzf'''
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.zsh/.fzf
 ~/.zsh/.fzf/install
@@ -28,7 +25,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 '''install zsh-syntax-highlighting'''
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-cd ~
 '''install over'''
 
 
