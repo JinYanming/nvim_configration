@@ -19,15 +19,6 @@ make zsh default
 chsh -s /bin/zsh root
 chsh -s /bin/zsh
 
-'''install fzf'''
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.zsh/.fzf
-~/.zsh/.fzf/install
-'''install zsh autosuggestions'''
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-'''install zsh-syntax-highlighting'''
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-'''install over'''
 
 '''install vim-plug'''
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -45,11 +36,20 @@ fi
 if [-f "~/.tmux.conf"];then
 rm ~/.tmux.conf
 fi
-cp ./.zshrc ~/.zshrc
-cp ./.tmux.conf ~/.tmux.conf
+sudo cp ./.zshrc ~/
+sudo cp ./.tmux.conf ~/
 if [ ! -d "~/.vim/tags" ];then
 mkdir -p ~/.vim/tags/
 fi
+'''install fzf'''
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.zsh/.fzf
+~/.zsh/.fzf/install
+'''install zsh autosuggestions'''
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+'''install zsh-syntax-highlighting'''
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+'''install over'''
 source ~/.zshrc
 ctags -R -f ~/.vim/tags/python3.ctags /usr/lib/python3.5/
 ctags -R -f ~/.vim/tags/python3-dp.ctags /usr/local/lib/python3.5/dist-packages
