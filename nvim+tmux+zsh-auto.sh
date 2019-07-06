@@ -8,7 +8,7 @@ BOLD=$(printf '\033[1m')
 RESET=$(printf '\033[m')
 echo "${RED}clear enviroment${RESET}"
 
-if [ -d "~/.zsh" ];then
+if [ -d ~/.zsh ];then
 sudo rm -rf ~/.zsh
 mkdir ~/.zsh
 fi
@@ -39,15 +39,15 @@ rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
 echo "${YELLOW}The program will automaticlly make the ctags needed/n${RESET}"
 sudo apt-get install ctags
-if [-d "~/.zshrc"];then
+if [ -f ~/.zshrc ];then
 rm ~/.zshrc
 fi
-if [-d "~/.tmux.conf"];then
+if [ -f ~/.tmux.conf ];then
 rm ~/.tmux.conf
 fi
 sudo cp ./.zshrc ~/
 sudo cp ./.tmux.conf ~/
-if [ ! -d "~/.vim/tags" ];then
+if [ ! -d ~/.vim/tags ];then
 mkdir -p ~/.vim/tags/
 fi
 ehco "${BLUE}install fzf${RESET}"
