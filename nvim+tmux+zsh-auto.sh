@@ -12,7 +12,9 @@ sudo apt update
 sudo apt-get install -y neovim
 sudo apt-get install -y zsh
 sudo apt-get install -y tmux
-sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+'''install oh my zsh'''
+sudo rm -rf ~/.oh-my-zsh
+echo y|sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 '''
 make zsh default 
 '''
