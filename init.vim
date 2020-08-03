@@ -660,6 +660,3 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 
-"alias configration
-alias p3p="python3 -m pdb"
-"alias proxy="XXXX"

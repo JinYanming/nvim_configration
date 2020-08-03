@@ -89,8 +89,11 @@ ZSH_THEME="agnoster"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+#alias configration
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias p3p="python3 -m pdb"
+#alias proxy="XXXX"
 
 
 plugins=(
