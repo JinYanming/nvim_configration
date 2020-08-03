@@ -1,4 +1,7 @@
 {
+  "python.pythonPath": "python3",
+  "python.jediEnabled": false,
+  "python.autoComplete.extraPaths": [],
   "diagnostic.displayByAle": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.hintSign": "·",
@@ -22,7 +25,5 @@
       "command": "lua-lsp",
       "filetypes": ["lua"]
     }
-  },
-  "python.pythonPath": "python3",
-  "python.jediEnabled": false
+  }
 }
