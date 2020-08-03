@@ -26,9 +26,10 @@ sudo apt-get install -y ctags
 sudo apt-get install -y build-essential cmake python3-dev
 sudo apt-get install -y git
 sudo apt-get install -y python3-pip
-sudo apt-get install -y python-pip 
-sudo pip install pynvim jedi
-sudo pip3 install pynvim jedi
+sudo apt-get install -y python-pip
+sudo apt-get install -y nodejs
+sudo pip install pynvim python-language-server #jedi
+sudo pip3 install pynvim python-language-server #jedi
 echo "${GREEN} neovim zsh tmux ctags installation is completed${RESET}"
 echo "${BLUE}install oh my zsh${RESET}"
 sudo rm -rf ~/.oh-my-zsh
@@ -47,6 +48,7 @@ mkdir -p ~/.config/nvim
 cat ./init.vim > ~/.config/nvim/init.vim
 
 echo "${GREEN} vim-plug installation is completed${RESET}"
+echo "${BLUE}copying configration files"
 rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
 if [ -f ~/.zshrc ];then
@@ -55,12 +57,13 @@ fi
 if [ -f ~/.tmux.conf ];then
 sudo rm ~/.tmux.conf
 fi
+if [ -f ~/.config/nvim/coc-settings.json ];then
+sudo rm ~/.config/nvim/coc-settings.json
+fi
 cat ./.zshrc > ~/.zshrc
 cat ./.tmux.conf > ~/.tmux.conf
-
-echo "${BLUE}installing YCM plugins"
-cat ./global_extra_conf.py > ~/global_extra_conf.py
-echo "${GREEN}YCM plugins installation is completed${RESET}"
+cat ./coc-settings.json > ~/.config/nvim/coc-settings.json
+echo "${GREEN} configration files copy is done ${RESET}"
 echo "${BLUE}installing tmux plugins"
 if [ -d ~/.tmux/plugins/tpm ];then
 sudo rm -r ~/.tmux/plugins/tpm
