@@ -27,9 +27,7 @@ bash nvim+tmux+zsh-auto.sh
 ```
 5.compile the YCM module(Attention:This step is very important which will influence the autocompletion module)
 ```
-cd ~/.vim/plugged/YouCompleteMe
-git submodule update --init --recursive
-python3 install.py --clangd-completer
+pass
 ```
 6.install powerline fons in you local machine!!!(not on servers,do the below operation on you local machine)
 ```
