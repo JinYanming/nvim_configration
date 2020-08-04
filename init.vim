@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 Plug 'majutsushi/tagbar'
-
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -100,9 +99,9 @@ map <C-F3> \be
 
 " Color Scheme Setup
 syntax enable
+
+
 "colorscheme solarized
-
-
 colorscheme molokai
 let g:airline_theme='light'
 set background=dark

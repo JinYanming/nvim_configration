@@ -1,29 +1,5 @@
 {
   "python.pythonPath": "python3",
   "python.jediEnabled": false,
-  "python.autoComplete.extraPaths": [],
-  "diagnostic.displayByAle": true,
-  "diagnostic.errorSign": "✖",
-  "diagnostic.hintSign": "·",
-  "diagnostic.infoSign": "·",
-  "diagnostic.warningSign": "·",
-  "suggest.snippetIndicator": "",
-  "coc.source.ultisnips.priority": 5,
-  "languageserver": {
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
-    },
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["Dockerfile"],
-      "args": ["--stdio"]
-    },
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
-    }
-  }
+  "python.autoComplete.extraPaths": []
 }
