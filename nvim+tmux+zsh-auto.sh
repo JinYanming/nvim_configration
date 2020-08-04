@@ -20,6 +20,8 @@ sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install -y neovim
+sudo apt-get install -y python-neovim
+sudo apt-get install -y python3-neovim
 sudo apt-get install -y zsh
 sudo apt-get install -y tmux
 sudo apt-get install -y ctags
@@ -28,8 +30,8 @@ sudo apt-get install -y git
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python-pip
 sudo apt-get install -y nodejs
-sudo pip install pynvim python-language-server pyls-mypy pyls-black     #jedi
-sudo pip3 install pynvim python-language-server pyls-mypy pyls-black    #jedi
+sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi
+sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi
 echo "${GREEN} neovim zsh tmux ctags installation is completed${RESET}"
 echo "${BLUE}install oh my zsh${RESET}"
 sudo rm -rf ~/.oh-my-zsh
