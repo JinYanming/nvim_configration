@@ -38,16 +38,15 @@ Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/nyaovim-popup-tooltip'
 " UI Plugin
 "language server prototype
-Plug 'neovim/nvim-lsp'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+"Plug 'neovim/nvim-lsp'
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
 "auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-python', {'do': 'npm install'}
 Plug 'neoclide/coc-snippets', {'do': 'npm install'}
-Plug 'neoclide/coc-status', {'do': 'npm install'}
 Plug 'neoclide/coc-tsserver', {'do': 'npm install'}
 Plug 'neoclide/coc-tabnine', {'do': 'npm install'}
 "Plug 'davidhalter/jedi-vim'
@@ -63,11 +62,11 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#
 "set statusline+=%*
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
 "LanguageClient configration
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'shell': ['shellcheck'],     
-    \ }
+"let g:LanguageClient_serverCommands = {
+"    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"    \ 'python': ['/usr/local/bin/pyls'],
+"    \ 'shell': ['shellcheck'],     
+"    \ }
 "nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 "nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 "nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
