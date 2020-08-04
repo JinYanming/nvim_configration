@@ -30,6 +30,10 @@ sudo apt-get install -y git
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python-pip
 sudo apt-get install -y nodejs
+sudo apt-get install -y yarn
+sudo pip3 install --upgrade pip
+sudo pip install update
+sudo pip3 install update
 sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi
 sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi
 echo "${GREEN} neovim zsh tmux ctags installation is completed${RESET}"
