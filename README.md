@@ -7,7 +7,7 @@
 
 1.Clone this repo:
 ```sh
-git clone https://github.com/JinYanming/nvim_configration.git
+git clone https://github.com/JinYanming/nvim_configration.git --branch coc_nvim
 ```
 
 
