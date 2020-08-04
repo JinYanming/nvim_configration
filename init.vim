@@ -37,12 +37,14 @@ Plug 'hdima/python-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/nyaovim-popup-tooltip'
 " UI Plugin
-"auto completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"language server prototype
+Plug 'neovim/nvim-lsp'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+"auto completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-python', {'do': 'npm install'}
 Plug 'neoclide/coc-snippets', {'do': 'npm install'}
 Plug 'neoclide/coc-status', {'do': 'npm install'}
