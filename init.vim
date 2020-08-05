@@ -2,9 +2,10 @@ call plug#begin('~/.vim/plugged')
 "plug configration <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 "Plug 'ervandew/supertab'
 " Make sure you use single quotes
+" colorschemes
+Plug 'tomasr/molokai'
 
 Plug 'majutsushi/tagbar'
-Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 Plug 'wakatime/vim-wakatime'
@@ -17,17 +18,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
+"helpers
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug '~/my-prototype-plugin'
-
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-
 Plug 'easymotion/vim-easymotion'
+
+
+Plug '~/my-prototype-plugin'
 Plug 'https://github.com/vim-scripts/taglist.vim.git'
 " UI Plugin
 Plug 'roxma/nvim-yarp'
