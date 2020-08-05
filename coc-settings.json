@@ -1,5 +1,57 @@
 {
+  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.jumpCommand": "edit",
+  "coc.preferences.useQuickfixForLocations": false,
+  "coc.preferences.previewAutoClose": true,
+
+  "suggest.autoTrigger": "always",
+  "suggest.triggerCompletionWait": 100,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.timeout": 3000,
+  "suggest.noselect": true,
+
+  "diagnostic.enable": true,
+  "diagnostic.signOffset": 1000,
+  "diagnostic.errorSign": "✗",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": ">>",
+  "diagnostic.hintSign": ">>",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": " // ",
+
+  "signature.enable": true,
+  "signature.target": "echo",
+
+  "lists.disabledLists": ["words", "quickfix", "colors", "filetypes", "tags", "marks", "maps", "vimcommands", "searchhistory", "cmdhistory"],
+  "list.source.files.excludePatterns": ["**/.git/*", "**/.ccls-cache/*", "**/__pycache__/*", "*.pyc"],
+  "list.source.grep.command": "ag",
+    
+  "highlight.colors.enable": false,
+
   "python.pythonPath": "python3",
-  "python.jediEnabled": false,
-  "python.autoComplete.extraPaths": []
+  "python.jediEnabled": true,
+  "python.analysis.diagnosticEnabled": false,
+  "python.autoComplete.addBrackets": false,
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--ignore=E501,F401,E226,E741,W191"],
+  "python.linting.pylintEnabled": false,
+
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+         "cacheDirectory": ".ccls-cache",
+         "highlight": { "lsRanges" : true }
+       }
+    }
+  }
+
 }
+// vim: ts=2 sts=2 conceallevel=0 expandtab
+
