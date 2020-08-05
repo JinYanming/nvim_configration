@@ -52,6 +52,7 @@ Plug 'neoclide/coc-tabnine', {'do': 'npm install'}
 "Plug 'davidhalter/jedi-vim'
 " Initialize plugin system>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 call plug#end()
+
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
@@ -61,15 +62,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
-"LanguageClient configration
-"let g:LanguageClient_serverCommands = {
-"    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-"    \ 'python': ['/usr/local/bin/pyls'],
-"    \ 'shell': ['shellcheck'],     
-"    \ }
-"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 """""syntax configration""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -98,8 +91,6 @@ map <C-F3> \be
 :autocmd BufRead,BufNewFile *.dot map <F4> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
 
 
-" Color Scheme Setup
-syntax enable
 
 
 "colorscheme solarized
@@ -321,14 +312,19 @@ set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 显示相关  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Color Scheme Setup
+syntax enable
+" work for files in buffer
 syntax on
 set cul "高亮光标所在行
-set cuc
+set cuc "高亮光标所在列
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 set go=             " 不要图形按钮  
+" 设置背景主题
 "color desert     " 设置背景主题  
 "color ron     " 设置背景主题  
 "color torte     " 设置背景主题  
+
 "set guifont=Courier_New:h10:cANSI   " 设置字体  
 "autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
 autocmd InsertEnter * se cul    " 用浅色高亮当前行  
@@ -423,7 +419,7 @@ func SetTitle()
 		call setline(1, "'''*************************************************************************") 
 		call append(line("."), "	> File Name: ".expand("%")) 
 		call append(line(".")+1, "	> Author: Your Name (edit this in the init.vim file)") 
-		call append(line(".")+2, "	> Mail: Your Mail@megvii.com") 
+		call append(line(".")+2, "	> Mail: Your Mail@mail.com") 
 		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
 		call append(line(".")+4, " ************************************************************************'''") 
 		call append(line(".")+5, "")
@@ -454,7 +450,7 @@ autocmd BufNewFile * normal G
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:nmap <silent> <F9> <ESC>:Tlist<RETURN>
+nmap <silent> <F9> <ESC>:Tlist<RETURN>
 " shift tab pages
 map <S-Left> :tabp<CR>
 map <S-Right> :tabn<CR>
@@ -506,7 +502,7 @@ func! CompileRunGcc()
 	endif
 endfunc
 "C,C++的调试
-map <F8> :call Rungdb()<CR>
+map <F7> :call Rungdb()<CR>
 func! Rungdb()
 	exec "w"
 	exec "!g++ % -std=c++11 -g -o %<"
@@ -668,7 +664,6 @@ nmap tl :Tlist<cr>
 
 
 
-set iskeyword+=.
 set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
