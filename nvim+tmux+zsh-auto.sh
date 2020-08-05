@@ -34,8 +34,8 @@ sudo apt-get install -y yarn
 sudo pip3 install --upgrade pip
 sudo pip install update
 sudo pip3 install update
-sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi
-sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi
+sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi==0.17.2
+sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi==0.17.2
 echo "${GREEN} neovim zsh tmux ctags installation is completed${RESET}"
 echo "${BLUE}install oh my zsh${RESET}"
 sudo rm -rf ~/.oh-my-zsh
