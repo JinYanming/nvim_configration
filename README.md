@@ -7,7 +7,7 @@
 
 1.Clone this repo:
 ```sh
-git clone https://github.com/JinYanming/nvim_configration.git --branch coc_nvim
+git clone https://github.com/JinYanming/nvim_configration.git
 ```
 
 
@@ -17,7 +17,7 @@ cd nvim_configration
 bash nvim+tmux+zsh-auto.sh
 ```
 
-3.Open nvim, and
+3.Open nvim, and wait for the coc auto-installation complete,after that type:
 ```sh
 :PlugInstall
 ```
@@ -42,6 +42,10 @@ Tools including nvim zsh tmux and several needed plugs will be installed automat
 The rest thing you have to do is to use it and work on it.  
 
 
+some important Keys usage:
+F8 open function tree
+F3 open file tree
+/  quick search
 
 PS:  
     The prefix of tmux is modified by me as Ctrl+x
