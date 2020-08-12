@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 "plug configration <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"Plug 'ervandew/supertab'
 " Make sure you use single quotes
 " colorschemes
 Plug 'tomasr/molokai'
@@ -37,31 +36,27 @@ Plug 'hdima/python-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/nyaovim-popup-tooltip'
 " UI Plugin
-"language server prototype
-"Plug 'neovim/nvim-lsp'
-"Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
 "auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python', {'do': 'npm install'}
-Plug 'neoclide/coc-snippets', {'do': 'npm install'}
-Plug 'neoclide/coc-tsserver', {'do': 'npm install'}
-Plug 'neoclide/coc-tabnine', {'do': 'npm install'}
-"Plug 'davidhalter/jedi-vim'
 " Initialize plugin system>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 call plug#end()
-
+let g:coc_global_extensions = [
+\ 'coc-python',
+\ 'coc-git',
+\ 'coc-snippets',
+\ 'coc-tabnine',
+\ 'coc-json',
+\ 'coc-tsserver',
+\ 'coc-html',
+\ 'coc-css',
+\ 'coc-highlight',
+\ 'coc-angular'
+\ ]
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容  
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
 """""syntax configration""""""""""""""
 let g:syntastic_always_populate_loc_list = 1
@@ -95,7 +90,7 @@ map <C-F3> \be
 
 "colorscheme solarized
 colorscheme molokai
-let g:airline_theme='light'
+let g:airline_theme='simple'
 set background=dark
 
 "easymotion configration<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
