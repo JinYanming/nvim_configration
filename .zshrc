@@ -93,6 +93,9 @@ ZSH_THEME="agnoster"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias p3p="python3 -m pdb"
+alias ssst="sudo sslocal -c /etc/shadowsocks.json -d start"
+alias sssp="sudo sslocal -c /etc/shadowsocks.json -d stop"
+
 #alias proxy="XXXX"
 
 
