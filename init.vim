@@ -44,7 +44,7 @@ let g:coc_global_extensions = [
 \ 'coc-python',
 \ 'coc-git',
 \ 'coc-snippets',
-\ 'coc-tabnine',
+"\ 'coc-tabnine',
 \ 'coc-json',
 \ 'coc-tsserver',
 \ 'coc-html',
