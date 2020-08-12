@@ -25,7 +25,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
-
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 Plug '~/my-prototype-plugin'
 Plug 'https://github.com/vim-scripts/taglist.vim.git'
