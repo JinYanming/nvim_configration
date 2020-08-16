@@ -1,7 +1,7 @@
 #### by 金焰明(JinYanming)
 #### email me if there is any problems:1535640262@qq.com
 #### I will keep the maintenance work and update Irregularly
-#### This project integrates neovim tmux zsh and some very useful plugs of them including YouCompleteMe FZF auto pairs nerdtree ncm2 and so on.
+#### This project integrates neovim tmux zsh and some very useful plugs of them including COC-Nvim FZF auto pairs nerdtree ncm2 and so on.
 #### The installation is quite easy as you do as the follow steps.
 ## A Rapid Installation Mode
 
@@ -25,11 +25,8 @@ bash nvim+tmux+zsh-auto.sh
 ```
 ~/.tmux/plugins/tpm/bin/install_plugins
 ```
-5.compile the YCM module(Attention:This step is very important which will influence the autocompletion module)
-```
-pass
-```
-6.install powerline fons in you local machine!!!(not on servers,do the below operation on you local machine)
+
+5.install powerline fons in you local machine!!!(not on servers,do the below operation on you local machine)
 ```
 git clone https://github.com/powerline/fonts.git
 cd fonts
