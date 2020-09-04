@@ -314,6 +314,9 @@ syntax enable
 syntax on
 set cul "高亮光标所在行
 set cuc "高亮光标所在列
+highlight CursorColumn cterm=NONE ctermfg=yellow guibg=NONE guifg=NONE
+"highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+"highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
 set go=             " 不要图形按钮  
 " 设置背景主题
