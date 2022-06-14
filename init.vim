@@ -7,7 +7,6 @@ Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'wakatime/vim-wakatime'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -48,8 +47,6 @@ let g:coc_global_extensions = [
 \ 'coc-snippets',
 "\ 'coc-tabnine',
 \ 'coc-json',
-\ 'coc-tsserver',
-\ 'coc-html',
 \ 'coc-css',
 \ 'coc-highlight',
 \ 'coc-angular'
