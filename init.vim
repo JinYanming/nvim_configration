@@ -24,8 +24,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'f-person/git-blame.nvim'
 
 Plug '~/my-prototype-plugin'
 Plug 'https://github.com/vim-scripts/taglist.vim.git'
@@ -35,20 +34,19 @@ Plug 'kien/ctrlp.vim'
 Plug 'hdima/python-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/nyaovim-popup-tooltip'
-Plug 'farmergreg/vim-lastplace'
 " UI Plugin
 "auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 call plug#end()
 let g:coc_global_extensions = [
-\ 'coc-python',
 \ 'coc-git',
 \ 'coc-snippets',
-"\ 'coc-tabnine',
 \ 'coc-json',
 \ 'coc-css',
+\ 'coc-tsserver',
 \ 'coc-highlight',
+\ 'coc-pyright',
 \ 'coc-angular'
 \ ]
 " Add (Neo)Vim's native statusline support.
@@ -118,6 +116,10 @@ map  N <Plug>(easymotion-prev)
 "easymotion configration end>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 nmap <F8> :TagbarToggle<CR>
 "COC nvim configration<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -137,7 +139,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
+if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
@@ -149,11 +151,11 @@ endif
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -165,14 +167,12 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -186,18 +186,64 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" showSignatureHelp while cusorhold on variables by JinYanming
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+func! AutoShowDocumentationInit()
+  let b:autoshowdocumentationenable = 1  " 默认打开自动显示函数说明
+  if !exists('b:autoshowdocumentationenable')
+    let b:autoshowdocumentationenable = 1
+  end
+endf
+
+
+func! AutoShowDocumentationToggle()
+  if b:autoshowdocumentationenable
+    let b:autoshowdocumentationenable = 0
+    echo 'AutoShowDocumentation Disabled.'
+  else
+    let b:autoshowdocumentationenable = 1
+    echo 'AutoShowDocumentation Enabled.'
+  end
+  return ''
+endf
+
+if !exists('g:AutoShowDocumentationToggle')
+  let g:AutoShowDocumentationToggle = '<M-s>'
+end
+if g:AutoShowDocumentationToggle != ''
+    " use <expr> to ensure showing the status when toggle
+    execute 'inoremap <buffer> <silent> <expr> '.g:AutoShowDocumentationToggle.' AutoShowDocumentationToggle()'
+    execute 'noremap <buffer> <silent> '.g:AutoShowDocumentationToggle.' :call AutoShowDocumentationToggle()<CR>'
+end
+
+function! AutoShowDocumentation()
+  if b:autoshowdocumentationenable
+    call CocAction('doHover') 
+  endif
+endfunction
+
+autocmd CursorHold * silent call AutoShowDocumentation()
+au BufEnter * :call AutoShowDocumentationInit()
+
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+" autocmd CursorHold * silent call CocAction('doHover')
+" ailent call Float_document()
+" tocmd CursorHold * if ! coc#util#has_float() | call CocActionAsync('doHover') | endif 
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -224,6 +270,9 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
@@ -235,22 +284,37 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
 " Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+" Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
+nnoremap <silent><nowait> <space>g  :<C-u>CocList<cr>
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
@@ -261,13 +325,13 @@ nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
+" oCO
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-"COC nvim configration end
+"COC nvim configration end<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -312,7 +376,7 @@ syntax enable
 syntax on
 set cul "高亮光标所在行
 set cuc "高亮光标所在列
-highlight CursorColumn cterm=NONE ctermfg=yellow guibg=NONE guifg=NONE
+highlight CursorColumn cterm=NONE ctermfg=darkgreen guibg=NONE guifg=NONE
 "highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 "highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
@@ -624,14 +688,6 @@ filetype plugin indent on
 "打开文件类型检测, 加了这句才可以用智能补全
 set completeopt=longest,menu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" undo buffer  
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" persistent undo
-set undofile
-set undodir=~/.config/nvim/.undo
-set history=10000
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags的设定  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let Tlist_Sort_Type = "name"    " 按照名称排序  
@@ -672,7 +728,6 @@ set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-
 " Let's save undo info!
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
@@ -682,5 +737,4 @@ if !isdirectory($HOME."/.vim/undo-dir")
 endif
 set undodir=~/.vim/undo-dir
 set undofile
-
 

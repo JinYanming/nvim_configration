@@ -34,8 +34,8 @@ sudo apt-get install -y yarn
 sudo pip3 install --upgrade pip
 sudo pip install update
 sudo pip3 install update
-sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi==0.17.2
-sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi==0.17.2
+sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi-language-server
+sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi-language-server
 echo "${GREEN} neovim zsh tmux ctags installation is completed${RESET}"
 echo "${BLUE}install oh my zsh${RESET}"
 sudo rm -rf ~/.oh-my-zsh
@@ -91,9 +91,4 @@ echo "${BLUE}install zsh-syntax-highlighting"
 sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "${GREEN} zsh-syntax-highlighting installation is completed${RESET}"
 
-echo "${RED}now generate ctags"
-sudo ctags -R -f ~/.vim/tags/python3.ctags /usr/lib/python3.5/
-sudo ctags -R -f ~/.vim/tags/python3-dp.ctags /usr/local/lib/python3.5/dist-packages
-sudo ctags -R -f ~/.vim/tags/python3-sp.ctags ~/.local/lib/python3.5/site-packages
-echo "${GREEN}ctags generating is over!${RESET}"
 echo "${GREEN}All steps is done!${RESET}"

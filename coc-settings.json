@@ -6,7 +6,7 @@
   "coc.preferences.previewAutoClose": true,
 
   "suggest.autoTrigger": "always",
-  "suggest.triggerCompletionWait": 100,
+  "suggest.triggerCompletionWait": 50,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.timeout": 3000,
@@ -21,6 +21,8 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": " // ",
+  "diagnostic.refreshOnInsertMode": true,
+
 
   "signature.enable": true,
   "signature.target": "echo",
@@ -30,16 +32,7 @@
   "list.source.grep.command": "ag",
     
   "highlight.colors.enable": false,
-
-  "python.pythonPath": "python3",
-  "python.jediEnabled": true,
-  "python.analysis.diagnosticEnabled": false,
-  "python.autoComplete.addBrackets": false,
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": ["--ignore=E501,F401,E226,E741,W191"],
-  "python.linting.pylintEnabled": false,
-
+  
   "languageserver": {
     "ccls": {
       "command": "ccls",
