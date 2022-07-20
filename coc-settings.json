@@ -10,6 +10,7 @@
   "suggest.triggerAfterInsertEnter": false,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.timeout": 3000,
+  "suggest.labelMaxLength": 200,
   "suggest.noselect": true,
 
   "diagnostic.enable": true,
