@@ -739,4 +739,4 @@ set undofile
 " diy configration
 " lazygit in nvim
 
-nnoremap <silent><nowait> <M-s>  :<C-u>LazyGit<cr>
+nnoremap <silent><nowait> <M-g>  :<C-u>LazyGit<cr>
