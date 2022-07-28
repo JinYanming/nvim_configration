@@ -34,6 +34,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'hdima/python-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/nyaovim-popup-tooltip'
+Plug 'kdheepak/lazygit.nvim'
 " UI Plugin
 "auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -735,3 +736,7 @@ set undodir=~/.vim/undo-dir
 set undofile
 
 
+" diy configration
+" lazygit in nvim
+
+nnoremap <silent><nowait> <M-s>  :<C-u>LazyGit<cr>
