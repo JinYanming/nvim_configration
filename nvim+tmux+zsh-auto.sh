@@ -33,6 +33,7 @@ sudo apt-get install -y python3-pip
 sudo apt-get install -y python-pip
 sudo apt-get install -y nodejs
 sudo apt-get install -y yarn
+sudo apt-get install -y tar
 sudo pip3 install --upgrade pip
 sudo pip install update
 sudo pip3 install update
@@ -92,5 +93,9 @@ echo "${GREEN} zsh autosuggestions installation is completed${RESET}"
 echo "${BLUE}install zsh-syntax-highlighting"
 sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "${GREEN} zsh-syntax-highlighting installation is completed${RESET}"
+echo "${BLUE}install lazy-git"
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+echo "${GREEN} lazy-git is completed${RESET}"
 
 echo "${GREEN}All steps is done!${RESET}"
