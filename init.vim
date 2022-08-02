@@ -740,3 +740,6 @@ set undofile
 " lazygit in nvim
 
 nnoremap <silent><nowait> <M-g>  :<C-u>LazyGit<cr>
+
+" git-blame
+let g:gitblame_enabled = 0
