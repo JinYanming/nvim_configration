@@ -200,19 +200,24 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 func! AutoShowDocumentationInit()
-  let b:autoshowdocumentationenable = 1  " 默认打开自动显示函数说明
-  if !exists('b:autoshowdocumentationenable')
-    let b:autoshowdocumentationenable = 1
+  echo g:AutoShowDocumentationToggle
+  if !exists('g:autoshowdocumentationenable')
+    let g:autoshowdocumentationenable = 1  " 默认打开自动显示函数说明
   end
+  if g:AutoShowDocumentationToggle != ''
+    " use <expr> to ensure showing the status when toggle
+    execute 'inoremap <buffer> <silent> <expr> '.g:AutoShowDocumentationToggle.' AutoShowDocumentationToggle()'
+    execute 'noremap <buffer> <silent> '.g:AutoShowDocumentationToggle.' :call AutoShowDocumentationToggle()<CR>'
+end
 endf
 
 
 func! AutoShowDocumentationToggle()
-  if b:autoshowdocumentationenable
-    let b:autoshowdocumentationenable = 0
+  if g:autoshowdocumentationenable
+    let g:autoshowdocumentationenable = 0
     echo 'AutoShowDocumentation Disabled.'
   else
-    let b:autoshowdocumentationenable = 1
+    let g:autoshowdocumentationenable = 1
     echo 'AutoShowDocumentation Enabled.'
   end
   return ''
@@ -221,14 +226,9 @@ endf
 if !exists('g:AutoShowDocumentationToggle')
   let g:AutoShowDocumentationToggle = '<M-s>'
 end
-if g:AutoShowDocumentationToggle != ''
-    " use <expr> to ensure showing the status when toggle
-    execute 'inoremap <buffer> <silent> <expr> '.g:AutoShowDocumentationToggle.' AutoShowDocumentationToggle()'
-    execute 'noremap <buffer> <silent> '.g:AutoShowDocumentationToggle.' :call AutoShowDocumentationToggle()<CR>'
-end
 
 function! AutoShowDocumentation()
-  if b:autoshowdocumentationenable
+  if g:autoshowdocumentationenable
     call CocAction('doHover') 
   endif
 endfunction
