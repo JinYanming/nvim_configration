@@ -200,7 +200,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 func! AutoShowDocumentationInit()
-  echo g:AutoShowDocumentationToggle
   if !exists('g:autoshowdocumentationenable')
     let g:autoshowdocumentationenable = 1  " 默认打开自动显示函数说明
   end
