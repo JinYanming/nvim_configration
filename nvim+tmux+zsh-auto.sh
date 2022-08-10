@@ -9,43 +9,50 @@ RESET=$(printf '\033[m')
 echo "${RED}clear enviroment${RESET}"
 
 if [ -d ~/.zsh ];then
-sudo rm -rf ~/.zsh
+rm -rf ~/.zsh
 mkdir ~/.zsh
 fi
 echo "${BLUE} neovim zsh tmux ctags installation start"
+echo "${BLUE} installing neovim by Appimage${RESET}" 
+if ! [ -f ./nvim.appimage ];then
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+fi
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
 
-sudo apt-get update
-#sudo apt-get install -y python-software-properties 
-sudo apt-add-repository -y ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install -y software-properties-common
-sudo apt-get install -y neovim
-sudo apt-get install -y python-neovim
-sudo apt-get install -y python3-neovim
-sudo apt-get install -y zsh
-sudo apt-get install -y tmux
-sudo apt-get install -y ctags
-sudo apt-get install -y build-essential cmake python3-dev
-sudo apt-get install -y git
-sudo apt-get install -y python3-pip
-sudo apt-get install -y python-pip
-sudo apt-get install -y nodejs
-sudo apt-get install -y yarn
-sudo apt-get install -y tar
-sudo pip3 install --upgrade pip
-sudo pip install update
-sudo pip3 install update
-sudo pip install pynvim python-language-server pyls-mypy pyls-black jedi-language-server
-sudo pip3 install pynvim python-language-server pyls-mypy pyls-black jedi-language-server
+if ! [ -d ~/bin/ ];then
+mkdir ~/bin
+fi
+
+if [ -d ~/bin/squashfs-root/ ];then
+rm -rf ~/bin/squashfs-root
+fi
+
+mv squashfs-root ~/bin/
+
+if [ -f ~/bin/nvim ];then
+rm ~/bin/nvim
+fi
+
+ln -s ~/bin/squashfs-root/AppRun ~/bin/nvim
+
+echo "${GREEN} neovim is installed{RESET}"
+
+pip3 install update
+pip3 install --upgrade pip
+pip3 install --upgrade setuptools
+pip3 install --upgrade pip
+pip3 install --upgrade distlib
+pip3 install pynvim python-language-server pyls-mypy pyls-black jedi==0.17.2
 echo "${GREEN} neovim zsh tmux ctags installation is completed${RESET}"
 echo "${BLUE}install oh my zsh${RESET}"
-sudo rm -rf ~/.oh-my-zsh
+rm -rf ~/.oh-my-zsh
 echo y|sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "${GREEN} oh my zsh installation is completed${RESET}"
 echo "${BLUE}make zsh default${RESET}" 
-sudo usermod -s /bin/zsh root
-sudo usermod -s /bin/zsh $USER
+chsh -s `which zsh`
 
 echo "${GREEN}  zsh  is set as default${RESET}"
 echo "${BLUE}install vim-plug"
@@ -59,13 +66,13 @@ echo "${BLUE}copying configration files"
 rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
 if [ -f ~/.zshrc ];then
-sudo rm ~/.zshrc
+rm ~/.zshrc
 fi
 if [ -f ~/.tmux.conf ];then
-sudo rm ~/.tmux.conf
+rm ~/.tmux.conf
 fi
 if [ -f ~/.config/nvim/coc-settings.json ];then
-sudo rm ~/.config/nvim/coc-settings.json
+rm ~/.config/nvim/coc-settings.json
 fi
 cat ./.zshrc > ~/.zshrc
 cat ./.tmux.conf > ~/.tmux.conf
@@ -73,7 +80,7 @@ cat ./coc-settings.json > ~/.config/nvim/coc-settings.json
 echo "${GREEN} configration files copy is done ${RESET}"
 echo "${BLUE}installing tmux plugins"
 if [ -d ~/.tmux/plugins/tpm ];then
-sudo rm -r ~/.tmux/plugins/tpm
+rm -rf ~/.tmux/plugins/tpm
 fi
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "${GREEN} tmux plugins installation is completed${RESET}"
@@ -83,13 +90,13 @@ fi
 echo "${BLUE}install fzf"
 rm -rf ~/.fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-echo n|sudo ~/.fzf/install
+echo n|~/.fzf/install
 echo "${GREEN} fzf installation is completed${RESET}"
 echo "${BLUE}install zsh autosuggestions"
-sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 echo "${GREEN} zsh autosuggestions installation is completed${RESET}"
 echo "${BLUE}install zsh-syntax-highlighting"
-sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "${GREEN} zsh-syntax-highlighting installation is completed${RESET}"
 echo "${BLUE}install lazy-git"
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-9.]+')
