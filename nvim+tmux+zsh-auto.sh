@@ -16,7 +16,7 @@ echo "${BLUE} neovim zsh tmux ctags installation start"
 
 sudo apt-get update
 sudo apt-get install -y curl
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - 
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 #sudo apt-get install -y python-software-properties 
 sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get update
