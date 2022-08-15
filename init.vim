@@ -721,3 +721,6 @@ nnoremap <silent><nowait> <M-g>  :<C-u>LazyGit<cr>
 
 " git-blame
 let g:gitblame_enabled = 0
+
+" coc-list
+nnoremap <silent><nowait> <space>g  :<C-u>CocList<cr>
