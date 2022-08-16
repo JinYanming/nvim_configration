@@ -299,7 +299,7 @@ end
 
 function! AutoShowDocumentation()
   if g:autoshowdocumentationenable
-    call CocAction('doHover') 
+    call CocActionAsync('doHover') 
   endif
 endfunction
 
