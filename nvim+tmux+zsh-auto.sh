@@ -19,7 +19,12 @@ sudo apt-get update
 sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:neovim-ppa/stable
 sudo apt-get install -y curl
+
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+sudo dpkg -i ripgrep_13.0.0_amd64.deb
+
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
 sudo apt-get update
 sudo apt-get install -y software-properties-common
 sudo apt-get install -y neovim
