@@ -23,7 +23,9 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": " // ",
   "diagnostic.refreshOnInsertMode": true,
-
+    
+  "pyright.disableDiagnostics": true,
+  "python.linting.flake8Enabled": true,
 
   "signature.enable": true,
 
