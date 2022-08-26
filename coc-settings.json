@@ -26,6 +26,7 @@
     
   "pyright.disableDiagnostics": true,
   "python.linting.flake8Enabled": true,
+  "pyright.inlayHints.enable": false, 
 
   "signature.enable": true,
 
