@@ -724,3 +724,6 @@ let g:gitblame_enabled = 0
 
 " coc-list
 nnoremap <silent><nowait> <space>g  :<C-u>CocList<cr>
+
+" auto-pairs default disable
+let b:autopairs_enabled = 0
