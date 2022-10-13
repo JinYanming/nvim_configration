@@ -23,19 +23,17 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": " // ",
   "diagnostic.refreshOnInsertMode": true,
-    
-  "pyright.disableDiagnostics": true,
   "python.linting.flake8Enabled": true,
-  "pyright.inlayHints.enable": false, 
-
+  "pyright.disableDiagnostics": true,
   "signature.enable": true,
+  "signature.triggerSignatureWait": 100000,
+  "pyright.inlayHints.enable": false,
 
   "lists.disabledLists": ["words", "quickfix", "colors", "filetypes", "tags", "marks", "maps", "vimcommands", "searchhistory", "cmdhistory"],
   "list.source.files.excludePatterns": ["**/.git/*", "**/.ccls-cache/*", "**/__pycache__/*", "*.pyc"],
   "list.source.grep.command": "ag",
     
   "highlight.colors.enable": false,
-  
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -50,4 +48,3 @@
 
 }
 // vim: ts=2 sts=2 conceallevel=0 expandtab
-
