@@ -716,7 +716,7 @@ set undofile
 
 " diy configration
 " lazygit in nvim
-
+" option + g
 nnoremap <silent><nowait> <M-g>  :<C-u>LazyGit<cr>
 
 " git-blame
@@ -724,6 +724,8 @@ let g:gitblame_enabled = 0
 
 " coc-list
 nnoremap <silent><nowait> <space>g  :<C-u>CocList<cr>
+" FZF quick search file
+nnoremap <silent><nowait> <space>f  :<C-u>FZF<cr>
 
 " auto-pairs default disable
 let b:autopairs_enabled = 0
