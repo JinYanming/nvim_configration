@@ -59,11 +59,9 @@ echo "${GREEN}  zsh  is set as default${RESET}"
 echo "${BLUE}install vim-plug"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir -p ~/.config/nvim
-cat ./init.vim > ~/.config/nvim/init.vim
-
 echo "${GREEN} vim-plug installation is completed${RESET}"
 echo "${BLUE}copying configration files"
+mkdir -p ~/.config/nvim
 rm -rf ~/.local/share/nvim
 cp -rf ./nvim ~/.local/share
 if [ -f ~/.zshrc ];then
@@ -75,9 +73,8 @@ fi
 if [ -f ~/.config/nvim/coc-settings.json ];then
 sudo rm ~/.config/nvim/coc-settings.json
 fi
+bash ./update.sh
 cat ./.zshrc > ~/.zshrc
-cat ./.tmux.conf > ~/.tmux.conf
-cat ./coc-settings.json > ~/.config/nvim/coc-settings.json
 echo "${GREEN} configration files copy is done ${RESET}"
 echo "${BLUE}installing tmux plugins"
 if [ -d ~/.tmux/plugins/tpm ];then
