@@ -91,16 +91,16 @@ nmap <F8> :TagbarToggle<CR>
 " end>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 " Nerd Tree Setup<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-map <C-h> :NERDTreeToggle<CR>
+" map <C-h> :NERDTreeToggle<CR>
 "当打开vim且没有文件时自动打开NERDTree
 "autocmd vimenter * NERDTree
 " 只剩 NERDTree时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "列出当前目录文件  
-map <F3> :NERDTreeToggle<CR>
-imap <F3> <ESC> :NERDTreeToggle<CR>
+" map <F3> :NERDTreeToggle<CR>
+" imap <F3> <ESC> :NERDTreeToggle<CR>
 "打开树状文件目录  
-map <C-F3> \be  
+" map <C-F3> \be  
 " Nerd Tree Setup end>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
@@ -136,6 +136,8 @@ nnoremap <silent><nowait> <M-g>  :<C-u>LazyGit<cr>
 "FZF configration startup<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " FZF quick search file
 nnoremap <silent><nowait> <space>f  :<C-u>FZF<cr>
+" open list of recent files
+nnoremap <silent><nowait> <space>r  :<C-u>History<cr>
 
 "auto-pairs configration startup<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " auto-pairs default disable

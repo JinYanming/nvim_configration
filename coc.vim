@@ -6,6 +6,7 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-highlight',
 \ 'coc-pyright',
+\ 'coc-explorer',
 \ 'coc-angular'
 \ ]
 
@@ -208,5 +209,16 @@ au BufEnter * :call AutoShowDocumentationInit()
 " ###########################################
 " coc-list
 nnoremap <silent><nowait> <space>g  :<C-u>CocList<cr>
+
+" ###########################################
+
+" ###########################################
+" coc-explorer
+" autocmd vimenter * CocCommand explorer
+map <C-h> :CocCommand explorer<CR>
+map <F3> :CocCommand explorer<CR>
+" quit when the only window is explorer
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
 
 " ###########################################
