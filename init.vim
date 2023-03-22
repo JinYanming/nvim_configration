@@ -26,6 +26,7 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set cursorline
+set modifiable  " to make eazymotion work
 
 set et
 set smarttab
