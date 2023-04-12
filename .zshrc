@@ -96,8 +96,9 @@ alias p3p="python3 -m pdb"
 alias ssst="sudo sslocal -c /etc/shadowsocks.json -d start"
 alias sssp="sudo sslocal -c /etc/shadowsocks.json -d stop"
 alias clean_ssh="ps -ef | grep sshd | grep -v -e grep -e root -e 12345 | awk '{print "sudo kill -9", $2}' | sh"
-
 #alias proxy="XXXX"
+
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,bg=black,bold,underline'
 
 
 plugins=(
