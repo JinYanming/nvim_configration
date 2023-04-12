@@ -40,6 +40,7 @@ sudo apt-get install -y python-pip
 sudo apt-get install -y nodejs
 sudo apt-get install -y yarn
 sudo apt-get install -y tar
+sudo apt-get install -y clangd-9
 sudo pip3 install --upgrade pip
 sudo pip install update
 sudo pip3 install update

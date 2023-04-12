@@ -7,7 +7,8 @@ let g:coc_global_extensions = [
 \ 'coc-highlight',
 \ 'coc-pyright',
 \ 'coc-explorer',
-\ 'coc-angular'
+\ 'coc-angular',
+\ 'coc-clangd',
 \ ]
 
 
