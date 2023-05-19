@@ -367,6 +367,10 @@ set scrolloff=3
 ""	endif
 ""endfunction
 
+" 折叠代码
+set foldmethod=indent
+" 默认不折叠代码
+set nofoldenable
 
 
 
