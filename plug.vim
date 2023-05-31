@@ -63,40 +63,40 @@ call plug#end()
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CTags的设定  
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Sort_Type = "name"    " 按照名称排序  
-let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
-let Tlist_Compart_Format = 1    " 压缩方式  
-let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
-""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
-""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
-"let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
-"设置tags  
-set tags=tags;  
-set tags+=$HOME/.vim/tags/python3.ctags
-set tags+=$HOME/.vim/tags/python3-dp.ctags
-set tags+=$HOME/.vim/tags/python3-sp.ctags
-"其他东东
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"默认打开Taglist 
-let Tlist_Auto_Open=0 
-"""""""""""""""""""""""""""""" 
-" Tag list (ctags) 
-"""""""""""""""""""""""""""""""" 
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
-let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
-let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-" minibufexpl插件的一般设置
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1  
-nmap tl :Tlist<cr>
+"    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"    " CTags的设定  
+"    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"    let Tlist_Sort_Type = "name"    " 按照名称排序  
+"    let Tlist_Use_Right_Window = 1  " 在右侧显示窗口  
+"    let Tlist_Compart_Format = 1    " 压缩方式  
+"    let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer  
+"    ""let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags  
+"    ""let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树  
+"    let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
+"    "设置tags  
+"    set tags=tags;  
+"    set tags+=$HOME/.vim/tags/python3.ctags
+"    set tags+=$HOME/.vim/tags/python3-dp.ctags
+"    set tags+=$HOME/.vim/tags/python3-sp.ctags
+"    "其他东东
+"    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"    "默认打开Taglist 
+"    let Tlist_Auto_Open=0 
+"    """""""""""""""""""""""""""""" 
+"    " Tag list (ctags) 
+"    """""""""""""""""""""""""""""""" 
+"    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
+"    let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的 
+"    let Tlist_File_Fold_Auto_Close = 1
+"    let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim 
+"    let Tlist_Use_Right_Window = 1 "在右侧窗口中显示taglist窗口
+"    let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+"    " minibufexpl插件的一般设置
+"    let g:miniBufExplMapWindowNavVim = 1
+"    let g:miniBufExplMapWindowNavArrows = 1
+"    let g:miniBufExplMapCTabSwitchBufs = 1
+"    let g:miniBufExplModSelTarget = 1  
+"    nmap tl :Tlist<cr>
 
 
 
