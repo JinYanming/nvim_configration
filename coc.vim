@@ -145,7 +145,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -172,7 +172,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 func! AutoShowDocumentationInit()
   if !exists('g:autoshowdocumentationenable')
-    let g:autoshowdocumentationenable = 1  " 默认打开自动显示函数说明
+    let g:autoshowdocumentationenable = 0  " 默认打开自动显示函数说明
   end
   if g:AutoShowDocumentationToggle != ''
     " use <expr> to ensure showing the status when toggle
