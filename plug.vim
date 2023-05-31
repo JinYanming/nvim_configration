@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 " colorschemes
 Plug 'tomasr/molokai'
-
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -14,6 +13,19 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" show git branch in vim
+Plug 'tpope/vim-fugitive'
+" show err info
+Plug 'tpope/vim-dispatch'
+
+
+
+
+
+
+
+
+
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
@@ -35,16 +47,19 @@ Plug 'hdima/python-syntax'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/nyaovim-popup-tooltip'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'ianding1/leetcode.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'folke/neodev.nvim'
+Plug 'rcarriga/nvim-dap-ui'
+
 " UI Plugin
 "auto completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 call plug#end()
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
 
 
@@ -159,4 +174,36 @@ let OPTION_NAME = 1
 let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'<Paste>
 let g:ctrlp_working_path_mode = 'ra'
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#input#enabled = 1
+let g:airline#extensions#input#indicator_text = '中'
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+let g:airline#extensions#tabline#show_tab_count = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#show_splits = 1
+let g:airline#extensions#tabline#show_vim_statusline = 1
+let g:airline#extensions#tabline#show_error = 1
+
+let g:airline_filetype_overrides = {
+  \ 'coc-explorer':  [ 'CoC Explorer', '' ],
+  \ 'defx':  ['defx', '%{b:defx.paths[0]}'],
+  \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+  \ 'floggraph':  [ 'Flog', '%{get(b:, "flog_status_summary", "")}' ],
+  \ 'gundo': [ 'Gundo', '' ],
+  \ 'help':  [ 'Help', '%f' ],
+  \ 'minibufexpl': [ 'MiniBufExplorer', '' ],
+  \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERD'), '' ],
+  \ 'startify': [ 'startify', '' ],
+  \ 'vim-plug': [ 'Plugins', '' ],
+  \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
+  \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
+  \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
+  \ }
+
 

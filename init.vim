@@ -10,6 +10,8 @@ source ~/.config/nvim/ui.vim
 " coc 及其子插件的配置
 source ~/.config/nvim/coc.vim
 
+" dap 及其子插件的配置，主要用于debug
+source ~/.config/nvim/dap.vim
 
 
 " ################################################
@@ -26,7 +28,6 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set cursorline
-set modifiable  " to make eazymotion work
 
 set et
 set smarttab
@@ -75,7 +76,6 @@ set showcmd         " 输入的命令显示出来，看的清楚些
 
 "set whichwrap+=<,>,h,l   " 允许backspace和光标键跨越行边界(不建议)  
 set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离  
-set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)  
 "set foldenable      " 允许折叠  
 ""set foldmethod=manual   " 手动折叠  
 set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
@@ -193,7 +193,7 @@ autocmd BufNewFile * normal G
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <silent> <F9> <ESC>:Tlist<RETURN>
+" nmap <silent> <F9> <ESC>:Tlist<RETURN>
 " shift tab pages
 map <S-Left> :tabp<CR>
 map <S-Right> :tabn<CR>
@@ -201,7 +201,7 @@ map! <C-Z> <Esc>zzi
 map! <C-O> <C-Y>,
 map <C-A> ggVG$"+y
 map <Esc><Esc> :w<CR>
-map <F12> gg=G
+"map <F12> gg=G
 map <C-w> <C-w>w
 imap <C-k> <C-y>,
 imap <C-t> <C-q><TAB>
@@ -214,11 +214,11 @@ imap <C-e> <Esc>$
 vmap <C-c> "+y
 set mouse=v
 "去空行  
-nnoremap <F2> :g/^\s*$/d<CR> 
+" nnoremap <F2> :g/^\s*$/d<CR> 
 "比较文件  
-nnoremap <C-F2> :vert diffsplit 
+" nnoremap <C-F2> :vert diffsplit 
 "C，C++ 按F5编译运行
-map <F5> :call CompileRunGcc()<CR>
+" map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
@@ -245,17 +245,17 @@ func! CompileRunGcc()
 	endif
 endfunc
 "C,C++的调试
-map <F7> :call Rungdb()<CR>
-func! Rungdb()
-	exec "w"
-	exec "!g++ % -std=c++11 -g -o %<"
-	exec "!gdb ./%<"
-endfunc
+"    map <F7> :call Rungdb()<CR>
+"    func! Rungdb()
+"        exec "w"
+"        exec "!g++ % -std=c++11 -g -o %<"
+"        exec "!gdb ./%<"
+"    endfunc
 
 
 "代码格式优化化
 
-map <F6> :call FormartSrc()<CR><CR>
+" map <F6> :call FormartSrc()<CR><CR>
 
 "定义FormartSrc()
 func FormartSrc()
@@ -341,8 +341,6 @@ set selection=exclusive
 set selectmode=mouse,key
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set report=0
-" 在被分割的窗口间显示空白，便于阅读
-set fillchars=vert:\ ,stl:\ ,stlnc:\
 " 高亮显示匹配的括号
 set showmatch
 " 匹配括号高亮的时间（单位是十分之一秒）
@@ -366,14 +364,27 @@ set scrolloff=3
 ""		return a:char
 ""	endif
 ""endfunction
-
 " 折叠代码
+"
+"
+"
 set foldmethod=indent
 " 默认不折叠代码
 set nofoldenable
+" to make eazymotion work
+set modifiable
 
 
-
-
-
+" 状态栏设置
+"    set laststatus=2
+"    set statusline=
+"    set statusline+=%<%f\ " 文件名
+"    set statusline+=%h%m%r\ " 修改状态
+"    set statusline+=%{strftime('%c')}\ " 当前时间
+"    set statusline+=%=%l/%L\ " 行号/总行数
+"    " Add (Neo)Vim's native statusline support.
+"    " NOTE: Please see `:h coc-status` for integrations with external plugins that
+"    " provide custom statusline: lightline.vim, vim-airline.
+"    set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容
+"    set statusline+=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
