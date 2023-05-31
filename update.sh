@@ -13,6 +13,7 @@ echo "${GREEN} building init.vim and relative dependencies ...${RESET}"
 cat ./init.vim > ~/.config/nvim/init.vim
 cat ./basic.vim > ~/.config/nvim/basic.vim
 cat ./plug.vim > ~/.config/nvim/plug.vim
+cat ./dap.vim > ~/.config/nvim/dap.vim
 cat ./ui.vim > ~/.config/nvim/ui.vim
 cat ./coc.vim > ~/.config/nvim/coc.vim
 cat ./coc-settings.json > ~/.config/nvim/coc-settings.json
