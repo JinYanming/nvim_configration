@@ -27,7 +27,7 @@ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 sudo apt-get update
 sudo apt-get install -y software-properties-common
-sudo apt-get install -y neovim
+#sudo apt-get install -y neovim
 sudo apt-get install -y python-neovim
 sudo apt-get install -y python3-neovim
 sudo apt-get install -y zsh
@@ -41,6 +41,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y yarn
 sudo apt-get install -y tar
 sudo apt-get install -y clangd-9
+sudo apt-get install -y python3-venv
 sudo pip3 install --upgrade pip
 sudo pip install update
 sudo pip3 install update

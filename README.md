@@ -14,7 +14,9 @@ git clone https://github.com/JinYanming/nvim_configration.git
 2.Quick installation
 ```sh
 cd nvim_configration
+bash ./neovim_install.sh
 bash nvim+tmux+zsh-auto.sh
+bash ./virtualenv_debuggy.sh
 ```
 
 3.Open nvim, and wait for the coc auto-installation complete,after that type:
@@ -44,6 +46,13 @@ F8 open function tree
 F3 open file tree
 /  quick search
 
-PS:  
-    The prefix of tmux is modified by me as Ctrl+x
+
+
+
+
+
+
+
+
+
 
