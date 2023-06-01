@@ -57,7 +57,7 @@ let g:dap_python_term = 'xterm'
 let g:dap_python_repl = 'ptpython'
 let g:dap_python_test_runner = 'pytest'
 let g:dap_python_use_visuals = v:true
-
+nnoremap <leader>py :r ~/.config/nvim/debugyy.py<CR>zz
 
 lua <<EOF
 
