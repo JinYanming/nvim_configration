@@ -51,7 +51,7 @@ Plug 'ianding1/leetcode.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'mfussenegger/nvim-dap'
 Plug 'mfussenegger/nvim-dap-python'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate :TSInstall python'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate :TSInstall python :TSInstall cpp :TSInstall c'}
 
 Plug 'folke/neodev.nvim'
 Plug 'rcarriga/nvim-dap-ui'
