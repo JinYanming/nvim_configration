@@ -18,7 +18,7 @@ cat ./ui.vim > ~/.config/nvim/ui.vim
 cat ./coc.vim > ~/.config/nvim/coc.vim
 cat ./coc-settings.json > ~/.config/nvim/coc-settings.json
 cat ./debugyy.py > ~/.config/nvim/debugyy.py
-cat ./dap_config.lua.py > ~/.config/nvim/dap_config.lua
+cat ./dap_config.lua > ~/.config/nvim/dap_config.lua
 echo "${BLUE} Done${RESET}"
 
 echo "${GREEN} building .tmux.conf ...${RESET}"
