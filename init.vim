@@ -79,11 +79,6 @@ set scrolloff=3     " 光标移动到buffer的顶部和底部时保持3行距离
 "set foldenable      " 允许折叠  
 ""set foldmethod=manual   " 手动折叠  
 set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
-" 显示中文帮助
-if version >= 603
-	set helplang=cn
-	set encoding=utf-8
-endif
 " 自动缩进
 set autoindent
 set cindent
@@ -103,9 +98,6 @@ set history=1000
 "搜索逐字符高亮
 set hlsearch
 set incsearch
-"语言设置
-set langmenu=zh_CN.UTF-8
-set helplang=cn
 " 总是显示状态行
 set cmdheight=2
 " 侦测文件类型
