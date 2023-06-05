@@ -98,6 +98,10 @@ set history=1000
 "搜索逐字符高亮
 set hlsearch
 set incsearch
+"语言设置
+set langmenu=en_US.UTF-8
+let $LANG="en_US.UTF-8"
+
 " 总是显示状态行
 set cmdheight=2
 " 侦测文件类型
