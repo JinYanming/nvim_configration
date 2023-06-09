@@ -49,7 +49,10 @@ Plug 'rhysd/nyaovim-popup-tooltip'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'ianding1/leetcode.vim'
 Plug 'kshenoy/vim-signature'
+
+Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
+Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate :TSInstall python :TSInstall cpp :TSInstall c'}
 
