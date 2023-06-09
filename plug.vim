@@ -51,6 +51,7 @@ Plug 'ianding1/leetcode.vim'
 Plug 'kshenoy/vim-signature'
 
 Plug 'simrat39/rust-tools.nvim'
+Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mfussenegger/nvim-dap-python'
