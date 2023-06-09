@@ -63,6 +63,7 @@ some important Keys usage:
 ### common keymapping
 
 #### NVIM
+```
 <leader> key is tab
 <F3> open file tree
 <F8> open function tree
@@ -72,11 +73,11 @@ some important Keys usage:
 <space>r        fuzzy search recent files
 <ALT>s          open/close: autoshow signature/doc while hovering functions or varaiables
 <ALT>g          lazy git
-
+```
 #### Terminal/Shell
-
+```
 Ctrl + R        recent history commands
-
+```
 
 
 
