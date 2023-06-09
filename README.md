@@ -45,6 +45,7 @@ The rest thing you have to do is to use it and work on it.
 some important Keys usage:
 
 ### Debug keymapping
+```
 <F5>        continue()
 <F10>       step_over()
 <F11>       step_into()
@@ -59,7 +60,7 @@ some important Keys usage:
 <Leader>dp  preview()
 <Leader>df  centered_float (widgets.frames)
 <Leader>ds  centered_float(widgets.scopes)
-
+```
 ### common keymapping
 
 #### NVIM
