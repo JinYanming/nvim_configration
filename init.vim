@@ -101,7 +101,6 @@ set incsearch
 "语言设置
 set langmenu=en_US.UTF-8
 let $LANG="en_US.UTF-8"
-
 " 总是显示状态行
 set cmdheight=2
 " 侦测文件类型
@@ -213,8 +212,8 @@ set mouse=v
 " nnoremap <F2> :g/^\s*$/d<CR> 
 "比较文件  
 " nnoremap <C-F2> :vert diffsplit 
-"C，C++ 按F5编译运行
-" map <F5> :call CompileRunGcc()<CR>
+"C，C++ 按<F6>编译运行
+map <F6> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
@@ -241,12 +240,12 @@ func! CompileRunGcc()
 	endif
 endfunc
 "C,C++的调试
-"    map <F7> :call Rungdb()<CR>
-"    func! Rungdb()
-"        exec "w"
-"        exec "!g++ % -std=c++11 -g -o %<"
-"        exec "!gdb ./%<"
-"    endfunc
+    map <F7> :call Rungdb()<CR>
+    func! Rungdb()
+        exec "w"
+		exec "!g++ % -std=c++11 -g -o %<"
+        "exec "!gdb ./%<"
+    endfunc
 
 
 "代码格式优化化
@@ -383,4 +382,6 @@ set modifiable
 "    " provide custom statusline: lightline.vim, vim-airline.
 "    set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "状态行显示的内容
 "    set statusline+=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}%{coc#status()}%{get(b:,'coc_current_function','')}%#warningmsg#%{SyntasticStatuslineFlag()}%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
+let g:dap_cpp_lldb_executable='/usr/bin/lldb'
 
