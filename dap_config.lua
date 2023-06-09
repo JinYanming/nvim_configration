@@ -53,7 +53,8 @@ dap.adapters.codelldb = {
   port = "${port}",
   executable = {
     -- CHANGE THIS to your path!
-    command = os.getenv('HOME') .. '/.vscode/extensions/vadimcn.vscode-lldb-1.9.2/adapter/codelldb',
+    command = os.getenv('HOME') .. '/.local/share/nvim/mason/bin/codelldb',
+    --command = os.getenv('HOME') .. '/.vscode/extensions/vadimcn.vscode-lldb-1.9.2/adapter/codelldb',
     args = {"--port", "${port}"},
 
     -- On windows you may have to uncomment this:
