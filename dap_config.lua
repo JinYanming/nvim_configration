@@ -25,6 +25,9 @@ vim.keymap.set('n', '<Leader>ds', function()
   widgets.centered_float(widgets.scopes)
 end)
 
+vim.keymap.set('n', '<Leader>oo', function() require('dapui').open() end)
+vim.keymap.set('n', '<Leader>cc', function() require('dapui').close() end)
+
 
 
 
