@@ -211,4 +211,5 @@ let g:airline_filetype_overrides = {
   \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
   \ }
 
-
+"vim-signature configration startup<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+nnoremap <silent><nowait> dm!  :<C-u>delmarks!<cr>
