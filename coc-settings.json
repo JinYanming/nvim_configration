@@ -4,6 +4,7 @@
   "coc.preferences.jumpCommand": "edit",
   "coc.preferences.useQuickfixForLocations": false,
   "coc.preferences.previewAutoClose": true,
+  "explorer.openAction.strategy": "previousWindow",
 
   "suggest.autoTrigger": "always",
   "suggest.triggerCompletionWait": 50,
