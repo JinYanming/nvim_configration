@@ -1,5 +1,5 @@
 "colorscheme solarized
-colorscheme molokai
+colorscheme monokai
 let g:airline_theme='simple'
 set background=dark
 

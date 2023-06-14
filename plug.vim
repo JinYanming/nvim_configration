@@ -2,7 +2,8 @@ call plug#begin('~/.vim/plugged')
 "plug configration <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 " Make sure you use single quotes
 " colorschemes
-Plug 'tomasr/molokai'
+
+Plug 'tanvirtin/monokai.nvim'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
