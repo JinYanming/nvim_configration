@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 " colorschemes
 
 Plug 'tanvirtin/monokai.nvim'
+Plug 'jaxbot/semantic-highlight.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -214,3 +215,6 @@ let g:airline_filetype_overrides = {
 
 "vim-signature configration startup<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 nnoremap <silent><nowait> dm!  :<C-u>delmarks!<cr>
+
+" SemanticHighlight
+nnoremap <Leader>s :SemanticHighlightToggle<cr>
