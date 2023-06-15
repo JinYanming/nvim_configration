@@ -219,3 +219,9 @@ nnoremap <silent><nowait> dm!  :<C-u>delmarks!<cr>
 
 " SemanticHighlight
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
+
+
+
+
+
+luafile ~/.config/nvim/treesitter.lua

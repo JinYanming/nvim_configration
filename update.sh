@@ -19,5 +19,6 @@ cat ./coc.vim > ~/.config/nvim/coc.vim
 cat ./coc-settings.json > ~/.config/nvim/coc-settings.json
 cat ./debugyy.py > ~/.config/nvim/debugyy.py
 cat ./dap_config.lua > ~/.config/nvim/dap_config.lua
+cat ./treesitter.lua > ~/.config/nvim/treesitter.lua
 echo "${BLUE} Done${RESET}"
 
