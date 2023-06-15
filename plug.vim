@@ -20,6 +20,7 @@ Plug 'tpope/vim-fugitive'
 " show err info
 Plug 'tpope/vim-dispatch'
 Plug 'JinYanming/HoverHighlight'
+Plug 'JinYanming/coc-HoverShowDoc'
 
 
 
