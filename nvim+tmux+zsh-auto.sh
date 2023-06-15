@@ -75,6 +75,11 @@ fi
 if [ -f ~/.config/nvim/coc-settings.json ];then
 sudo rm ~/.config/nvim/coc-settings.json
 fi
+
+echo "${GREEN} building .tmux.conf ...${RESET}"
+cat ./.tmux.conf > ~/.tmux.conf
+echo "${BLUE} Done${RESET}"
+
 bash ./update.sh
 cat ./.zshrc > ~/.zshrc
 echo "${GREEN} configration files copy is done ${RESET}"

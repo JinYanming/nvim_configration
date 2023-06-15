@@ -21,7 +21,3 @@ cat ./debugyy.py > ~/.config/nvim/debugyy.py
 cat ./dap_config.lua > ~/.config/nvim/dap_config.lua
 echo "${BLUE} Done${RESET}"
 
-echo "${GREEN} building .tmux.conf ...${RESET}"
-cat ./.tmux.conf > ~/.tmux.conf
-echo "${BLUE} Done${RESET}"
-
