@@ -63,6 +63,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate :TSInstall python :TSI
 
 
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plug 'tpope/vim-commentary'
+
 
 Plug 'folke/neodev.nvim'
 Plug 'rcarriga/nvim-dap-ui'

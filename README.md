@@ -69,10 +69,16 @@ some important Keys usage:
 <F3> open file tree
 <F8> open function tree
 /  quick search
+gcc comment out a line (takes a count)
+gc  comment out the target of a motion (for example, gcap to comment out a paragraph), gc in visual mode to comment out the selection
+
+
+:Pydocstring  auto generate a function doc demo
 
 <space>f        fuzzy search files
 <space>r        fuzzy search recent files
 <ALT>s          open/close: autoshow signature/doc while hovering functions or varaiables
+<ALT>l          open/close: auto highlight the hovering word and all the other same words 
 <ALT>g          lazy git
 ```
 #### Terminal/Shell
