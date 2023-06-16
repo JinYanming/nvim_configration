@@ -60,6 +60,10 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate :TSInstall python :TSInstall cpp :TSInstall c'}
 
+
+
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+
 Plug 'folke/neodev.nvim'
 Plug 'rcarriga/nvim-dap-ui'
 
