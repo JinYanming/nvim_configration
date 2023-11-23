@@ -15,8 +15,6 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" show git branch in vim
-Plug 'tpope/vim-fugitive'
 " show err info
 Plug 'tpope/vim-dispatch'
 Plug 'JinYanming/HoverHighlight'
