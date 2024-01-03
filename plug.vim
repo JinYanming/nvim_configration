@@ -16,7 +16,6 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " show err info
-Plug 'tpope/vim-dispatch'
 Plug 'JinYanming/HoverHighlight'
 Plug 'JinYanming/coc-HoverShowDoc'
 
