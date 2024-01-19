@@ -31,7 +31,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 "helpers
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
